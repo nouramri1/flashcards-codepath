@@ -31,6 +31,7 @@ body {
   grid-template-rows: auto 1fr auto; 
   gap: 20px;
   padding: clamp(16px, 3vw, 32px);
+  padding-top: clamp(32px, 6vh, 96px);
   justify-items: center;
 }
 
@@ -133,4 +134,108 @@ body {
 .next-btn:focus-visible {
   outline: 2px solid var(--sand-400);
   outline-offset: 3px;
+}
+
+.answer-area {
+  width: min(720px, 92vw);
+  display: grid;
+  gap: 10px;
+}
+
+.answer-form { display: grid; gap: 6px; }
+
+.answer-label {
+  font-size: 0.95rem;
+  color: var(--taupe-700);
+}
+
+.answer-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+}
+
+.answer-input {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--sand-300);
+  background: #fff;
+  font-size: 1rem;
+  color: var(--ink-900);
+}
+
+.answer-input:disabled {
+  background: var(--sand-100);
+  color: var(--taupe-700);
+}
+
+.submit-btn {
+  padding: 12px 16px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--taupe-700);
+  color: var(--sand-50);
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition: transform 0.12s ease, opacity 0.12s ease, box-shadow 0.12s ease;
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+.feedback {
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.feedback.correct {
+  background: #e7f7ea;
+  color: #1b6b2a;
+  border: 1px solid #b3e0be;
+}
+
+.feedback.incorrect {
+  background: #fdeaea;
+  color: #8f1f1f;
+  border: 1px solid #f3c3c3;
+}
+
+
+.controls-row {
+  width: min(720px, 92vw);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 10px;
+}
+
+.index-indicator {
+  text-align: center;
+  color: var(--taupe-700);
+}
+
+.nav-btn {
+  justify-self: start;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--sand-300);
+  background: var(--sand-100);
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--ink-900);
+}
+
+.nav-btn + .index-indicator + .nav-btn { justify-self: end; }
+
+.nav-btn.disabled,
+.nav-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }

@@ -1,11 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-export default function Flashcard({ card }) {
-  const [isFlipped, setIsFlipped] = useState(false);
-  const handleFlip = () => setIsFlipped(f => !f);
+export default function Flashcard({ card, revealed }) {
+  const [showBack, setShowBack] = useState(false);
+
+  
+  useEffect(() => {
+    setShowBack(revealed); 
+  }, [revealed]);
+
+  const handleClick = () => {
+    if (!revealed) return;          
+    setShowBack((s) => !s);         
+  };
 
   return (
-    <div className={`flashcard ${isFlipped ? "flipped" : ""}`} onClick={handleFlip}>
+    <div className={`flashcard ${showBack ? "flipped" : ""}`} onClick={handleClick}>
       <div className="flashcard-inner">
         <div className="flashcard-front">
           <p>{card.question}</p>
